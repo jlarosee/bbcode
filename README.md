@@ -6,11 +6,10 @@ BBCode
 [![Build Status](https://travis-ci.org/Genert/bbcode.svg?branch=master)](https://travis-ci.org/Genert/bbcode)
 
 > THIS IS FORKED FROM https://github.com/Genert/bbcode BECAUSE I NEEDED 5.6 SUPPORT!
-> BBCode parser from or to HTML.
 
 ## Installation
 
-[PHP](https://php.net) ~~7.1~~5.6 is required.
+[PHP](https://php.net) ~~7.1~~ 5.6 is required.
 
 ## Usage
 
