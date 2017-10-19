@@ -1,17 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: genertorg
- * Date: 13/07/2017
- * Time: 12:04
- */
 
-namespace Genert\BBCode;
+namespace JLarosee\BBCode;
 
-use Genert\BBCode\Parser\BBCodeParser;
-use Genert\BBCode\Parser\HTMLParser;
+use JLarosee\BBCode\Parser\BBCodeParser;
+use JLarosee\BBCode\Parser\HTMLParser;
 
 final class BBCode {
+    
     private $htmlParser;
     private $bbCodeParser;
 
@@ -39,17 +34,17 @@ final class BBCode {
         return $this;
     }
 
-    public function stripBBCodeTags(string $text): string
+    public function stripBBCodeTags(string $text)
     {
         return $this->bbCodeParser->stripTags($text);
     }
 
-    public function convertFromHtml(string $text): string
+    public function convertFromHtml(string $text)
     {
         return $this->htmlParser->parse($text);
     }
 
-    public function convertToHtml(string $text, $caseSensitive = null): string
+    public function convertToHtml(string $text, $caseSensitive = null)
     {
         return $this->bbCodeParser->parse($text, $caseSensitive);
     }

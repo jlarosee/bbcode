@@ -1,6 +1,6 @@
 <?php
 
-namespace Genert\BBCode;
+namespace JLarosee\BBCode;
 
 use Illuminate\Support\ServiceProvider;
 

@@ -1,5 +1,5 @@
 {
-    "name": "genert/bbcode",
+    "name": "jlarosee/bbcode",
     "description": "BBCode parser from or to HTML.",
     "keywords": ["bbcode", "parser", "laravel", "psr-1", "psr-2", "psr-4"],
     "type": "library",
@@ -13,11 +13,11 @@
     ],
     "autoload": {
         "psr-4": {
-            "Genert\\BBCode\\": "src/"
+            "JLaRosee\\BBCode\\": "src/"
         }
     },
     "support": {
-        "issues": "https://github.com/Genert/bbcode/issues"
+        "issues": "https://github.com/jlarosee/bbcode/issues"
     },
     "minimum-stability": "stable",
     "require": {},

@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: genertorg
- * Date: 13/07/2017
- * Time: 13:11
- */
 
-namespace Genert\BBCode\Parser;
+namespace JLarosee\BBCode\Parser;
 
 final class HTMLParser extends Parser {
     protected $parsers = [
@@ -104,6 +98,16 @@ final class HTMLParser extends Parser {
             'pattern' => '/<td>(.*?)<\/td>/s',
             'replace' => '[td]$1[/td]',
             'content' => '$1',
+        ],
+        'paragraph' => [
+            'pattern' => '/<p.*>(.*)<\/p>/',
+            'replace' => '$1',
+            'content' => '$1',
+        ],
+        'icon' => [
+            'pattern' => '/<i.*>/s',
+            'replace' => '',
+            'content' => '',
         ],
     ];
 

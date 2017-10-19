@@ -5,17 +5,12 @@ BBCode
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://travis-ci.org/Genert/bbcode.svg?branch=master)](https://travis-ci.org/Genert/bbcode)
 
+> THIS IS FORKED FROM https://github.com/Genert/bbcode BECAUSE I NEEDED 5.6 SUPPORT!
 > BBCode parser from or to HTML.
 
 ## Installation
 
-[PHP](https://php.net) 7.1+ is required. 
-
-To get the latest version of BBCode, simply require the project using [Composer](https://getcomposer.org):
-
-```bash
-$ composer require genert/bbcode
-```
+[PHP](https://php.net) ~~7.1~~5.6 is required.
 
 ## Usage
 
