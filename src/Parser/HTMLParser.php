@@ -135,6 +135,11 @@ final class HTMLParser extends Parser {
             'replace' => "\r\n",
             'content' => '',
         ],
+        'span' => [
+            'pattern' => '/<span style="(.*?)">(.*?)<\/span>/',
+            'replace' => '[span]$2[/span]',
+            'content' => '',
+        ],
     ];
 
     public function parse(string $source)
