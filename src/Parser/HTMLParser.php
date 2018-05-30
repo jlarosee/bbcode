@@ -3,6 +3,7 @@
 namespace JLarosee\BBCode\Parser;
 
 final class HTMLParser extends Parser {
+    
     protected $parsers = [
         'bold' => [
             'pattern' => '/<strong>(.*?)<\/strong>|<b>(.*?)<\/b>/s',
@@ -45,7 +46,7 @@ final class HTMLParser extends Parser {
             'content' => '$1'
         ],
         'link' => [
-            'pattern' => '/<a href="(.*?)">(.*?)<\/a>/s',
+            'pattern' => '/<a href="(.*?)".*>(.*?)<\/a>/s',
             'replace' => '[url=$1]$2[/url]',
             'content' => '$1'
         ],
@@ -66,7 +67,7 @@ final class HTMLParser extends Parser {
         ],
         'linebreak' => [
             'pattern' => '/<br\s*\/?>/',
-            'replace' => '/\r\n/',
+            'replace' => '\r\n',
             'content' => '',
         ],
         'sub' => [
@@ -100,23 +101,47 @@ final class HTMLParser extends Parser {
             'content' => '$1',
         ],
         'paragraph' => [
-            'pattern' => '/<p.*>(.*)<\/p>/',
-            'replace' => '$1',
+            'pattern' => '/<p.*?>(.*?)<\/p>/',
+            'replace' => '$1 __PARAGRAPH_BREAK__',
             'content' => '$1',
         ],
-        'icon' => [
-            'pattern' => '/<i.*>/s',
-            'replace' => '',
+        //'icon' => [
+        //    'pattern' => '/<i.*>/s',
+        //    'replace' => '',
+        //    'content' => '',
+        //],
+        'literal_breaks' => [
+            'pattern' => '/(\\\\r\\\\n|\\\\r|\\\\n)+/',
+            'replace' => "__LINE_BREAK____LINE_BREAK__",
+            'content' => '',
+        ],
+        'breaks' => [
+            'pattern' => '/(\\r\\n|\\r|\\n)+/',
+            'replace' => "__LINE_BREAK____LINE_BREAK__",
+            'content' => '',
+        ],
+        'merge_breaks' => [
+            'pattern' => '/(__LINE_BREAK__){2,}/',
+            'replace' => "__PARAGRAPH_BREAK__",
+            'content' => '',
+        ],
+        'restore_paragraph_breaks' => [
+            'pattern' => '/__PARAGRAPH_BREAK__/',
+            'replace' => "\r\n\r\n",
+            'content' => '',
+        ],
+        'restore_breaks' => [
+            'pattern' => '/__LINE_BREAK__/',
+            'replace' => "\r\n",
             'content' => '',
         ],
     ];
 
-    public function parse(string $source): string
+    public function parse(string $source)
     {
         foreach ($this->parsers as $name => $parser) {
             $source = $this->searchAndReplace($parser['pattern'], $parser['replace'], $source);
         }
-
-        return $source;
+        return trim($source);
     }
 }
